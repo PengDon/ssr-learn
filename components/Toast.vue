@@ -16,15 +16,13 @@ export default {
     },
     callback: Function,
   },
-  mounted() {
-    this.closeToast()
-  },
+  mounted() {},
   methods: {
     closeToast() {
       const time = setTimeout(() => {
-        clearTimeout(time)
         this.$refs.xxxToast.remove()
         typeof this.callback === 'function' && this.callback()
+        clearTimeout(time)
       }, this.timeout)
     },
   },

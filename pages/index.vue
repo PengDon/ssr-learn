@@ -1,10 +1,3 @@
-<!--
- * @Author: don
- * @Date: 2020-09-15 17:03:04
- * @LastEditors: don
- * @LastEditTime: 2020-09-15 18:20:26
- * @Description: 
--->
 <template>
   <div class="container">
     <!-- <Toast mes="TOAST信息" :callback="show" /> -->
