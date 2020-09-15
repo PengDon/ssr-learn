@@ -1,0 +1,138 @@
+// 截取文本(仅针对单行)
+.text-single-line-ellipsis(@height, @line-height, @width: auto) {
+  width: @width;
+  height: @height;
+  line-height: @line-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 设置透明度
+.opacity(@val) {
+  filter: alpha(opacity= @val);
+  opacity: @val / 100;
+}
+
+// 水平居中
+.horizontal-center() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// 绝对居中(相对于固定宽高的容器)
+.absolute-center(@width, @height) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -(@width / 2);
+  margin-top: -(@height / 2);
+  width: @width;
+  height: @height;
+}
+
+// 一像素上边框
+.border-top-1px(@color: #c7c7c7) {
+  position: relative;
+  &:before {
+    @include top-line();
+  }
+}
+
+// 一像素下边框
+.border-bottom-1px(@color: #c7c7c7) {
+  position: relative;
+  &:after {
+    @include bottom-line();
+  }
+}
+
+// 一像素上下边框
+.border-top-bottom-1px(@color: #c7c7c7) {
+  position: relative;
+  &:before {
+    @include top-line();
+  }
+  &:after {
+    @include bottom-line();
+  }
+}
+
+// 一像素左边框
+.border-left-1px(@color: #c7c7c7) {
+  position: relative;
+  &:before {
+    @include left-line();
+  }
+}
+
+// 一像素右边框
+.border-right-1px(@color: #c7c7c7) {
+  position: relative;
+  &:before {
+    @include right-line();
+  }
+}
+
+// 一像素边框
+.border-1px(@color: #c7c7c7, @position: relative, @border-radius: 0) {
+  position: @position;
+  &:after {
+    @include line(@color, @border-radius);
+  }
+}
+
+// 背景图片
+.bgImage(@path) {
+  background-image: url(`${@path}@2x.png`);
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    background-image: url(`${@path}@3x.png`);
+  }
+}
+
+// 遮罩层
+.mask(@bgcolor: rgba(0, 0, 0, 0.4), @z-index: @base-zindex * 1500) {
+  background-color: @bgcolor;
+  position: fixed;
+  z-index: @z-index;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+// 多行文本溢出显示省略号
+.line-clamp(@line: 2, @line-height: 38px) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  line-height: @line-height;
+  max-height: @line-height * @line + 20px;
+}
+
+.@{css-prefix} {
+  &-dialog {
+    &-black-mask {
+      .mask(rgba(0, 0, 0, 0.5), @base-zindex * 2000);
+    }
+
+    &-white-mask {
+      .mask(rgba(0, 0, 0, 0), @base-zindex * 2000);
+    }
+  }
+}
