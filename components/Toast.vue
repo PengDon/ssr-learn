@@ -16,16 +16,6 @@ export default {
     },
     callback: Function,
   },
-  mounted() {},
-  methods: {
-    closeToast() {
-      const time = setTimeout(() => {
-        this.$refs.xxxToast.remove()
-        typeof this.callback === 'function' && this.callback()
-        clearTimeout(time)
-      }, this.timeout)
-    },
-  },
 }
 </script>
 
@@ -38,11 +28,11 @@ export default {
     text-align: center;
     border-radius: 3px;
     color: #fff;
-    animation: yd-kf-zoom-in 0.06s ease forwards;
+    animation: xxx-kf-zoom-in 0.06s ease forwards;
 
     &-content {
-      font-size: 14px;
-      padding: 22px 15px;
+      .font-size();
+      padding: 24px;
       word-break: break-all;
     }
   }

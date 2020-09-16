@@ -1,9 +1,9 @@
 /*
  * @Author: don
- * @Date: 2020-09-15 16:44:35
+ * @Date: 2020-09-16 15:16:13
  * @LastEditors: don
- * @LastEditTime: 2020-09-15 16:50:35
- * @Description:
+ * @LastEditTime: 2020-09-16 15:41:35
+ * @Description: toast
  */
 import Vue from 'vue'
 import { pageScroll } from '@/assets/js/utils/assist'
@@ -40,4 +40,4 @@ const Toast = (options = {}) => {
   }, instance.timeout + 100)
 }
 
-Vue.prototype.$toast = Toast
+export default Toast

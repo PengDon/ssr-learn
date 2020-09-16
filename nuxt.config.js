@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-09-14 11:18:46
  * @LastEditors: don
- * @LastEditTime: 2020-09-15 18:02:09
+ * @LastEditTime: 2020-09-16 16:38:37
  * @Description:
  */
 export default {
@@ -24,7 +24,11 @@ export default {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1,maximum-scale=1,user-scalable=0',
+      },
       {
         hid: 'description',
         name: 'description',
@@ -45,7 +49,7 @@ export default {
   plugins: [
     { src: '~/plugins/flexible.js', ssr: false },
     { src: '~/plugins/eruda.js', ssr: false },
-    { src: '~/plugins/toast.js', ssr: false },
+    { src: '~/plugins/dialog.js', ssr: false },
   ],
   /*
    ** Auto import components
@@ -86,5 +90,9 @@ export default {
         remUnit: 75,
       }),
     ],
+  },
+  server: {
+    port: 3000, // default: 3000
+    host: '0.0.0.0', // default: localhost,
   },
 }
