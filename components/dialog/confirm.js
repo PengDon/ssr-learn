@@ -2,11 +2,11 @@
  * @Author: don
  * @Date: 2020-09-16 15:15:54
  * @LastEditors: don
- * @LastEditTime: 2020-09-16 15:41:25
+ * @LastEditTime: 2020-09-17 09:56:11
  * @Description: confirm
  */
 import Vue from 'vue'
-import { pageScroll } from '@/assets/js/utils/assist'
+import { pageScroll } from '@/utils/assist'
 import confirm from '@/components/Confirm'
 
 const ConfirmConstructor = Vue.extend(confirm)

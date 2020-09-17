@@ -2,11 +2,11 @@
  * @Author: don
  * @Date: 2020-09-16 15:16:06
  * @LastEditors: don
- * @LastEditTime: 2020-09-16 15:26:37
+ * @LastEditTime: 2020-09-16 18:23:35
  * @Description: loading
  */
 import Vue from 'vue'
-import { pageScroll } from '@/assets/js/utils/assist'
+import { pageScroll } from '@/utils/assist'
 import loading from '@/components/Loading'
 
 const LoadingConstructor = Vue.extend(loading)

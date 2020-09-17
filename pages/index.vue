@@ -10,11 +10,32 @@
 </template>
 
 <script>
+// import Toast from '@/components/dialog/toast'
+// 引入接口
+// import { goodsList } from '@/api'
 export default {
-  created() {},
-  mounted() {},
+  // 接口api使用方法一
+  // async asyncData({ $axios }) {
+  //   const data = await goodsList({ $axios })
+  //   console.log('xxxxxxxxxxxxxxxxxxxx')
+  //   console.log(data)
+  //   console.log('xxxxxxxxxxxxxxxxxxxx')
+  // },
+  mounted() {
+    // 接口api使用方法二
+    // this.getGoodsList()
+  },
   methods: {
+    // 接口api使用方法二
+    // async getGoodsList() {
+    //   const self = this
+    //   const data = await goodsList(self)
+    //   console.log('xxxxxxxxxxxxxxxxxxxx')
+    //   console.log(data)
+    //   console.log('xxxxxxxxxxxxxxxxxxxx')
+    // },
     toast() {
+      // 第一种写法
       this.$dialog.toast({
         mes: '一个没有任何图标的提示！',
         timeout: 2000,
@@ -22,6 +43,10 @@ export default {
           console.log('点击了toast')
         },
       })
+      // 第二种写法
+      // Toast({
+      //   mes: '一个没有任何图标的提示！',
+      // })
     },
     alert() {
       this.$dialog.alert({

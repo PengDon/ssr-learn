@@ -2,11 +2,11 @@
  * @Author: don
  * @Date: 2020-09-16 15:16:13
  * @LastEditors: don
- * @LastEditTime: 2020-09-16 15:41:35
+ * @LastEditTime: 2020-09-17 10:44:57
  * @Description: toast
  */
 import Vue from 'vue'
-import { pageScroll } from '@/assets/js/utils/assist'
+import { pageScroll } from '@/utils/assist'
 import toast from '@/components/Toast'
 
 const ToastConstructor = Vue.extend(toast)

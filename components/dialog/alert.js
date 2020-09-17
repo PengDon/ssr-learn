@@ -2,11 +2,11 @@
  * @Author: don
  * @Date: 2020-09-16 15:15:48
  * @LastEditors: don
- * @LastEditTime: 2020-09-16 15:26:27
+ * @LastEditTime: 2020-09-17 10:44:46
  * @Description: alert
  */
 import Vue from 'vue'
-import { pageScroll } from '@/assets/js/utils/assist'
+import { pageScroll } from '@/utils/assist'
 import alert from '@/components/Alert'
 
 const AlertConstructor = Vue.extend(alert)

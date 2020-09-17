@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-09-14 11:18:46
  * @LastEditors: don
- * @LastEditTime: 2020-09-16 16:38:37
+ * @LastEditTime: 2020-09-17 14:49:34
  * @Description:
  */
 export default {
@@ -50,6 +50,8 @@ export default {
     { src: '~/plugins/flexible.js', ssr: false },
     { src: '~/plugins/eruda.js', ssr: false },
     { src: '~/plugins/dialog.js', ssr: false },
+    { src: '~/plugins/axios.js', ssr: false },
+    // { src: '~/plugins/utils', ssr: false },
   ],
   /*
    ** Auto import components
@@ -79,7 +81,21 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+    // baseURL: 'http://api.example.com/xx',
+    // https: false,
+    // retry: true, // 请求失败重试（仅限3次）
+    // debug: false,
+    // proxy: 'http://api.example.com/xx', // 设置代理接口
+  },
+  // 接口反代
+  // proxy: {
+  //   '/api/': {
+  //     target: 'http://api.example.com/xx',
+  //     pathRewrite: { '^/api/': '' },
+  //   },
+  // },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

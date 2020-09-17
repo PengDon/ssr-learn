@@ -1,3 +1,5 @@
+import { isIOS } from './device'
+
 const pageScroll = (function () {
   const fn = function (e) {
     e.preventDefault()
@@ -28,10 +30,6 @@ const preventScroll = (function () {
     },
   }
 })()
-
-const isIOS = !!((window.navigator && window.navigator.userAgent) || '').match(
-  /\(i[^;]+;( U;)? CPU.+Mac OS X/
-)
 
 const isColor = function (value) {
   const colorReg = /^#([a-fA-F0-9]){3}(([a-fA-F0-9]){3})?$/
@@ -134,7 +132,6 @@ const scrollTop = function (el, from = 0, to, duration = 500, callback) {
 export {
   pageScroll,
   preventScroll,
-  isIOS,
   isColor,
   getScrollview,
   checkInview,
