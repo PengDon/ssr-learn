@@ -1,8 +1,8 @@
 /*
  * @Author: don
- * @Date: 2020-09-14 11:18:46
+ * @Date: 2020-09-17 16:32:14
  * @LastEditors: don
- * @LastEditTime: 2020-09-17 14:49:34
+ * @LastEditTime: 2020-09-17 17:24:14
  * @Description:
  */
 export default {
@@ -36,23 +36,16 @@ export default {
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: '//cdn.jsdelivr.net/npm/eruda' }],
   },
   /*
    ** Global CSS
    */
-  css: [{ src: '@assets/css/reset.less', lang: 'less' }],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-    { src: '~/plugins/flexible.js', ssr: false },
-    { src: '~/plugins/eruda.js', ssr: false },
-    { src: '~/plugins/dialog.js', ssr: false },
-    { src: '~/plugins/axios.js', ssr: false },
-    // { src: '~/plugins/utils', ssr: false },
-  ],
+  plugins: [{ src: '@/plugins/flexible.js', ssr: false }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -61,41 +54,23 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-  ],
+  buildModules: ['@nuxt/typescript-build'],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources', // 对应styleResources属性
+    '@nuxtjs/style-resources',
   ],
   styleResources: {
-    // 全局样式变量、mixin方法
-    less: ['./assets/css/variables.less', './assets/css/mixins.less'],
+    less: [],
   },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-    // baseURL: 'http://api.example.com/xx',
-    // https: false,
-    // retry: true, // 请求失败重试（仅限3次）
-    // debug: false,
-    // proxy: 'http://api.example.com/xx', // 设置代理接口
-  },
-  // 接口反代
-  // proxy: {
-  //   '/api/': {
-  //     target: 'http://api.example.com/xx',
-  //     pathRewrite: { '^/api/': '' },
-  //   },
-  // },
+  axios: {},
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
@@ -108,7 +83,7 @@ export default {
     ],
   },
   server: {
-    port: 3000, // default: 3000
+    port: 3001, // default: 3000
     host: '0.0.0.0', // default: localhost,
   },
 }

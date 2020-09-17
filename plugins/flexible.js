@@ -1,9 +1,9 @@
 /*
  * @Author: don
- * @Date: 2020-09-15 18:01:57
+ * @Date: 2020-09-17 16:51:05
  * @LastEditors: don
- * @LastEditTime: 2020-09-16 17:08:22
- * @Description: 可伸缩布局方案，rem计算方式：设计图尺寸px / 100 = 实际rem  例: 100px = 1rem
+ * @LastEditTime: 2020-09-17 16:52:28
+ * @Description: flexible
  */
 ;(function (window) {
   /* 设计图文档宽度 */
