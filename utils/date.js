@@ -1,13 +1,9 @@
 /*
  * @Author: don
  * @Date: 2020-03-18 14:27:43
- * @LastEditTime: 2020-09-15 10:54:09
+ * @LastEditTime: 2020-09-30 15:09:52
  * @Description: 时间日期
  */
-
-const padLeftZero = (str) => {
-  return `00${str}`.substr(str.length)
-}
 
 /**
  * @description: 日期格式化
@@ -17,6 +13,9 @@ const padLeftZero = (str) => {
  * @example:
  */
 export function formatDate(opts) {
+  const padLeftZero = (str) => {
+    return `00${str}`.substr(str.length)
+  }
   let { date, format } = opts
   // 如果date没值，则创建Date对象
   // 如果date是时间戳，则转换为Date对象

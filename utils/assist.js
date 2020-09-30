@@ -1,4 +1,4 @@
-import { isIOS } from './device'
+import { Device } from './device'
 
 const pageScroll = (function () {
   const fn = function (e) {
@@ -23,10 +23,12 @@ const pageScroll = (function () {
 const preventScroll = (function () {
   return {
     lock(el) {
-      isIOS && addClass(el || document.body, 'g-fix-ios-prevent-scroll')
+      Device().isIOS &&
+        addClass(el || document.body, 'g-fix-ios-prevent-scroll')
     },
     unlock(el) {
-      isIOS && removeClass(el || document.body, 'g-fix-ios-prevent-scroll')
+      Device().isIOS &&
+        removeClass(el || document.body, 'g-fix-ios-prevent-scroll')
     },
   }
 })()

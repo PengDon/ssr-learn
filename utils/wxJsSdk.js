@@ -1,26 +1,12 @@
 /*
  * @Author: don
  * @Date: 2020-03-18 15:16:00
- * @LastEditTime: 2020-09-16 18:30:49
+ * @LastEditTime: 2020-09-30 15:08:22
  * @Description: wx sdk 调用封装
  */
 
-let wx = {}
-// 兼容nuxt，只在浏览器端执行
-if (process.browser) {
-  wx = require('weixin-js-sdk')
-}
-
-/**
- * @description: wx sdk 调用
- * @param {Object} data config需要的参数对象
- * @param {Object} parms 操作类型对象
- * @param {Function} cb 成功回调
- * @param {Function} errorCb 失败回调
- * @return:
- * @example:
- */
 export function WX(data, parms, cb, errorCb) {
+  const wx = require('weixin-js-sdk')
   const appId = data.appId || data.appid
   const timestamp = data.timeStamp || data.timestamp
   const nonceStr = data.nonceStr
@@ -49,10 +35,8 @@ export function WX(data, parms, cb, errorCb) {
         imgUrl: parms.imgUrl,
         trigger(res) {
           // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-          //   alert('用户点击发送给朋友');
         },
         success(res) {
-          // alert("已分享");
           typeof cb === 'function' && cb(res)
         },
         cancel(res) {
@@ -72,7 +56,6 @@ export function WX(data, parms, cb, errorCb) {
         imgUrl: parms.imgUrl,
         trigger(res) {
           // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-          //   alert('用户点击分享到朋友圈');
         },
         success(res) {
           typeof cb === 'function' && cb(res)

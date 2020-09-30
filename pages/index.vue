@@ -10,20 +10,10 @@
 </template>
 
 <script>
-// import Toast from '@/components/dialog/toast'
-// 引入接口
-// import { goodsList } from '@/api'
+import { userList } from '@/api'
 export default {
-  // 接口api使用方法一
-  // async asyncData({ $axios }) {
-  //   const data = await goodsList({ $axios })
-  //   console.log('xxxxxxxxxxxxxxxxxxxx')
-  //   console.log(data)
-  //   console.log('xxxxxxxxxxxxxxxxxxxx')
-  // },
   mounted() {
-    // 接口api使用方法二
-    // this.getGoodsList()
+    this.getUserList()
   },
   methods: {
     // 接口api使用方法二
@@ -34,6 +24,16 @@ export default {
     //   console.log(data)
     //   console.log('xxxxxxxxxxxxxxxxxxxx')
     // },
+    async getUserList() {
+      const { $axios } = this
+      const res = await userList($axios)
+      console.log(res)
+      if (res.code === 200) {
+        console.log('成功')
+      } else {
+        console.log('失败')
+      }
+    },
     toast() {
       // 第一种写法
       this.$dialog.toast({

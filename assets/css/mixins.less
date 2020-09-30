@@ -1,16 +1,29 @@
+.hd {
+  display: none;
+}
 .font-size(@weight:400,@fontsize:14px) {
   font-weight: @weight;
   font-size: @fontsize;
 }
 
-// 截取文本(仅针对单行)
-.text-single-line-ellipsis(@height, @line-height, @width: auto) {
-  width: @width;
-  height: @height;
-  line-height: @line-height;
-  overflow: hidden;
+// 单行文本溢出显示省略号
+.text-single-line-ellipsis {
+  word-wrap: normal;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
+}
+
+// 多行文本溢出显示省略号
+.line-clamp(@line: 2, @line-height: 38px) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  line-height: @line-height;
+  max-height: @line-height * @line + 20px;
 }
 
 // 设置透明度
@@ -34,6 +47,37 @@
   margin-top: -(@height / 2);
   width: @width;
   height: @height;
+}
+
+// 背景图片
+.bgImage(@path) {
+  background-image: url(`${@path}@2x.png`);
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    background-image: url(`${@path}@3x.png`);
+  }
+}
+
+// 遮罩层
+.mask(@bgcolor: rgba(0, 0, 0, 0.4), @z-index: @base-zindex * 1500) {
+  background-color: @bgcolor;
+  position: fixed;
+  z-index: @z-index;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 // 一像素边框
@@ -91,49 +135,6 @@
   transform: scaleX(0.5);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
-}
-
-// 背景图片
-.bgImage(@path) {
-  background-image: url(`${@path}@2x.png`);
-  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
-    background-image: url(`${@path}@3x.png`);
-  }
-}
-
-// 遮罩层
-.mask(@bgcolor: rgba(0, 0, 0, 0.4), @z-index: @base-zindex * 1500) {
-  background-color: @bgcolor;
-  position: fixed;
-  z-index: @z-index;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  top: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-// 多行文本溢出显示省略号
-.line-clamp(@line: 2, @line-height: 38px) {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: @line;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  line-height: @line-height;
-  max-height: @line-height * @line + 20px;
 }
 
 .@{css-prefix} {

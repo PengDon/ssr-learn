@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-09-14 11:18:46
  * @LastEditors: don
- * @LastEditTime: 2020-09-17 14:49:34
+ * @LastEditTime: 2020-09-30 16:42:46
  * @Description:
  */
 export default {
@@ -48,10 +48,10 @@ export default {
    */
   plugins: [
     { src: '~/plugins/flexible.js', ssr: false },
-    { src: '~/plugins/eruda.js', ssr: false },
+    { src: '~/plugins/eruda.js', ssr: false }, // 前端调试工具
     { src: '~/plugins/dialog.js', ssr: false },
     { src: '~/plugins/axios.js', ssr: false },
-    // { src: '~/plugins/utils', ssr: false },
+    { src: '~/plugins/storeCache', ssr: false }, // nuxt中刷新页面后防止store值丢失
   ],
   /*
    ** Auto import components
@@ -76,6 +76,10 @@ export default {
   styleResources: {
     // 全局样式变量、mixin方法
     less: ['./assets/css/variables.less', './assets/css/mixins.less'],
+  },
+  router: {
+    base: '/front/', // 全局路由前缀
+    extendRoutes(routes, resolve) {},
   },
   /*
    ** Axios module configuration
